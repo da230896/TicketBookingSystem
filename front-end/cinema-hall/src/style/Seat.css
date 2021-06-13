@@ -1,0 +1,30 @@
+.unreserved-seat {
+    background-color: white;
+    border-color: black;
+    border-width: 9px;
+    border-style: dashed;
+    width: 100px;
+    height: 100px;
+}
+
+.unreserved-seat:hover{
+    background-color: #003F77;
+}
+
+.selected-seat {
+    background-color: #F2B031;
+    border-color: #003F77;
+    border-style: dashed;
+    border-width: 9px;
+    width: 100px;
+    height: 100px;
+}
+
+.reserved-seat{
+    background-color: #5C5756;
+    border-color: black;
+    border-width: 9px;
+    border-style: dashed;
+    width: 100px;
+    height: 100px;
+}
