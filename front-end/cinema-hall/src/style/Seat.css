@@ -1,10 +1,14 @@
-.unreserved-seat {
-    background-color: white;
-    border-color: black;
+.border-and-box-size {
     border-width: 9px;
     border-style: dashed;
     width: 100px;
     height: 100px;
+    margin: 10px;
+}
+
+.unreserved-seat {
+    background-color: white;
+    border-color: black;
 }
 
 .unreserved-seat:hover{
@@ -14,17 +18,9 @@
 .selected-seat {
     background-color: #F2B031;
     border-color: #003F77;
-    border-style: dashed;
-    border-width: 9px;
-    width: 100px;
-    height: 100px;
 }
 
 .reserved-seat{
     background-color: #5C5756;
     border-color: black;
-    border-width: 9px;
-    border-style: dashed;
-    width: 100px;
-    height: 100px;
 }

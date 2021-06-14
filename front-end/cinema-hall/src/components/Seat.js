@@ -1,6 +1,6 @@
 import '../style/Seat.css'
 import React, {useState} from 'react'
-import { SEAT_CATEGORIES } from '../constants/Constants.js'
+import { SEAT_CATEGORIES, CSS_BORDER_AND_SEAT_SIZE_CLASS } from '../constants/Constants.js'
 
 function Seat(props) {
 
@@ -14,7 +14,7 @@ function Seat(props) {
             setSeatCategory(SEAT_CATEGORIES.unreservedSeat)
      }
     return (  
-        <div className={seatCategory} onClick={seatSelector} />
+        <div className={`${seatCategory} ${CSS_BORDER_AND_SEAT_SIZE_CLASS}`} onClick={seatSelector} />
       );
 
 }
