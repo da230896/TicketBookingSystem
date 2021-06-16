@@ -14,4 +14,4 @@
 ## Assumptions:
 - Third party payment API which gives payment success or failure
 - Single database instance for storing the data
-- There are several other subtle assumptions as well. They were made to simplify they project, for example, all halls are showing same set of movies, and all the shows timings are same too
+- There are several other subtle assumptions as well. They were made to simplify they project, for example, all halls are showing same set of movies, and all the show timings are same too
