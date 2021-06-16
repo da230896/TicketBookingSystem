@@ -6,6 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "db-migration": "node DatabaseMigration.js",
     "lint": "samples lint",
     "pretest": "npm run lint",
     "test": "samples test app"
@@ -20,7 +21,8 @@
   "author": "Dinesh Agarwal",
   "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "ava": "0.22.0",
