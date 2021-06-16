@@ -2,6 +2,12 @@ const sqlite3 = require("sqlite3")
 
 const db = new sqlite3.Database("./movies-database.sqlite")
 
+// Halls is in BCNF
+// movies is in BCNF
+// showtime_table is in BCNF
+// reservation_status is in BCNF
+
+
 const createDB = () => {
 
     db.serialize(() => {
@@ -11,6 +17,7 @@ const createDB = () => {
                 DROP TABLE IF EXISTS movies;
                 DROP TABLE IF EXISTS showtime_table;
                 DROP TABLE IF EXISTS reservation_status;
+                DROP TABLE IF EXISTS seat_map;
             `
         )
         db.run(      
@@ -40,7 +47,7 @@ const createDB = () => {
         )
         
         db.run(
-            `CREATE TABLE IF NOT EXISTS reservation_status (
+            `CREATE TABLE IF NOT EXISTS seat_map (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 show_id INTEGER NOT NULL,
                 seat_allocation INTEGER
@@ -122,7 +129,7 @@ const createDB = () => {
     
         db.run(
             `
-                INSERT INTO reservation_status (show_id, seat_allocation) VALUES
+                INSERT INTO seat_map (show_id, seat_allocation) VALUES
                     (1, 6820),
                     (2, 37937),
                     (3, 12932),

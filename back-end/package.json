@@ -5,6 +5,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
+    "develop": "nodemon server.js",
     "start": "node server.js",
     "db-migration": "node DatabaseMigration.js",
     "lint": "samples lint",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "ava": "0.22.0",
-    "semistandard": "^12.0.1"
+    "semistandard": "^12.0.1",
+    "nodemon": "^2.0.7"
   }
 }
