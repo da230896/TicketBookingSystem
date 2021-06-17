@@ -1,13 +1,32 @@
-import React, {useState} from 'react';
-import './../style/Global.css'
+import React from 'react';
+import './../style/Global.css';
+import isValidObject from './../util/valid';
 
 function dropdown(props) {
 
-    return (
-        <select className="margin">
-            { props.options.map((opt, idx) => <option key={idx}>{opt}</option> )}
-        </select>
+    let option = [];
+    if (isValidObject(props.options)) {
+        props.options.forEach(element => {
+            if (isValidObject(element.name)) {
+                option.push(<option key = {element.id} value = {element.id}>{element.name}</option>)
+            } else if (isValidObject(element.timing)) {
+                option.push(<option key = {element.id} value = {element.id}>{element.timing}</option>)
+            }
+        });
+    }
 
+    const handleSelection = (event) => {
+        if (isValidObject(props.setSelection)) {
+            props.setSelection(event.target.value);
+        }
+    };
+
+    return (
+        <select className="margin" onChange={handleSelection}>
+            {
+                option
+            }
+        </select>
     );
 
 }

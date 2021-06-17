@@ -2,16 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import reportWebVitals from './reportWebVitals';
-import SeatManager from './components/SeatManager';
-import DropDownManager from './components/DropDownManager';
 import PaymentDetailsBox from './components/PaymentDetailsBox';
 import BookButton from './components/BookButton';
 import TotalAmount from './components/TotalAmount'
+import GlobalManager from './components/GlobalManager';
 
 ReactDOM.render(
   <React.StrictMode>
-      <DropDownManager/>
-      <SeatManager />
+      <GlobalManager/>
       <TotalAmount/>
       <PaymentDetailsBox/>
       <br></br>

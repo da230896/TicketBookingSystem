@@ -2,9 +2,10 @@
 
 // [START app]
 const express = require('express');
-const sqlite3 = require('sqlite3')
+const sqlite3 = require('sqlite3');
+const cors = require('cors');
 const app = express();
-
+app.use(cors());
 app.get('/getHalls', (req, res) => {
   console.log("Fetching the list of halls")
   let db = new sqlite3.Database("./movies-database.sqlite")
@@ -55,12 +56,12 @@ app.get('/getShowtime', (req, res) => {
     $hallId : hallId,
     $movieId : movieId
   },
-   (error, row) => {
+   (error, rows) => {
       if (error) {
           console.log(error);
           return
       }
-      res.send(row);
+      res.send(rows);
   });
 });
 
