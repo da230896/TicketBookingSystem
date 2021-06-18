@@ -6,6 +6,7 @@ function dropdown(props) {
 
     let option = [];
     if (isValidObject(props.options)) {
+        option.push(<option key = {-1} value = {-1}> </option>)
         props.options.forEach(element => {
             if (isValidObject(element.name)) {
                 option.push(<option key = {element.id} value = {element.id}>{element.name}</option>)
