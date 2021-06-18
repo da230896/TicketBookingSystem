@@ -73,9 +73,9 @@ function DropDownManager(props) {
 
     return (
         <React.Fragment>
-            <DropDown options={hall} setSelection={props.setHallId}/>
-            <DropDown options={movies} setSelection={props.setMovieId}/>
-            <DropDown options={showTimes} setSelection={props.setShowId}/>
+            <DropDown options={hall} setSelection={props.setHallId} blockSeatsForBooking={props.blockSeatsForBooking}/>
+            <DropDown options={movies} setSelection={props.setMovieId} blockSeatsForBooking={props.blockSeatsForBooking}/>
+            <DropDown options={showTimes} setSelection={props.setShowId} blockSeatsForBooking={props.blockSeatsForBooking}/>
         </React.Fragment>
     );
 }

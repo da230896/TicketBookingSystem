@@ -23,7 +23,7 @@ function dropdown(props) {
     };
 
     return (
-        <select className="margin" onChange={handleSelection}>
+        <select className="margin" onChange={props.blockSeatsForBooking ? handleSelection : () => {}}>
             {
                 option
             }

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './../style/Global.css'
 import PaymentDetailsBox from './PaymentDetailsBox';
-import Countdown from "react-countdown";
 import isValidObject from '../util/valid';
+import Countdown from './Countdown';
 
 function doNothingAndRefresh() {
     console.log("Happy path executed");
     window.alert("Successful booking");
     //hack right now need to figure out right way
-    window.location.replace('https://google.com');
+    window.location.reload();
     return;
 }
 
@@ -50,13 +50,9 @@ export default function BookButton(props) {
         setCounterFragment(
             <>
                 <PaymentDetailsBox/>
-                <Countdown date={Date.now() + 120_000} className="margin">
-                    left to enter Details and confirm booking
-                </Countdown>
+                <Countdown time={120_000} className="margin"/>
                 <br/><br/>
                 {/* Can simulate here payment api giving errors btw */}
-
-                {/* Error here */}
                 <button onClick={doNothingAndRefresh}>Done</button>
             </>
         );
@@ -79,6 +75,8 @@ export default function BookButton(props) {
             })
             .then(data => {
                 console.log("seats unreserved successfully", data);
+                window.alert("Failed to Book Seats. Hit ok to retry.");
+                window.location.reload();
             })
             .catch(err => {
                 // TODO replay mechanism or debugging
@@ -93,7 +91,7 @@ export default function BookButton(props) {
     if (props.showId !== -1 && props.selectedSeatIndex !== -1) {
         return (
             <>
-                <button type="submit" className="margin" onClick={generateCounterFragment}>Pay</button>
+                <button type="submit" className="margin" onClick={props.blockSeatsForBooking? generateCounterFragment: ()=> {}}>Pay</button>
                 <br/>
                 <div>
                 {

@@ -47,12 +47,12 @@ export default function App() {
 
     return (
         <>
-            <DropDownManager setHallId={setHallId} setMovieId={setMovieId} setShowId={setShowId} selection={selection}/>
+            <DropDownManager setHallId={setHallId} setMovieId={setMovieId} setShowId={setShowId} selection={selection} blockSeatsForBooking={blockSeatsForBooking}/>
             {/* This is important to see that on change of props we have re render */}
             <SeatManager showId={selection.showId} acquire={acquire} freeUp={freeUp} blockSeatsForBooking={blockSeatsForBooking}/>
             {/* We can simply extend the logic for pricing based on different hallId, movieId, showId */}
             <TotalAmount selectedSeatCount={selectedSeatCount}/>
-            <BookButton selectedSeatIndex={selectedSeatIndex} showId={selection.showId} blockSeatsForSelection={blockSeatsForSelection}/>
+            <BookButton selectedSeatIndex={selectedSeatIndex} showId={selection.showId} blockSeatsForSelection={blockSeatsForSelection}  blockSeatsForBooking={blockSeatsForBooking}/>
         </>
     );
 }
