@@ -5,12 +5,12 @@ import {SEAT_CATEGORIES} from '../constants/Constants.js'
 
 // This implementation is totally not efficient-- 1st iteration it is.
 
-function getSeatComponent(seatAvailability, idx, acquire, freeUp, showId) {
+function getSeatComponent(seatAvailability, idx, props) {
   // console.log(`idx being sent here is ${idx}. If it is only between [0,3] then will have to do the math`);
   if (!seatAvailability)
-    return <Seat key={idx} seatId={idx} seatCategory={SEAT_CATEGORIES.unreservedSeat} acquire={acquire} freeUp={freeUp} showId={showId} />
+    return <Seat key={idx} seatId={idx} seatCategory={SEAT_CATEGORIES.unreservedSeat} acquire={props.acquire} freeUp={props.freeUp} showId={props.showId} blockSeatsForBooking={props.blockSeatsForBooking} />
   else
-    return <Seat key={idx} seatId={idx} seatCategory={SEAT_CATEGORIES.reservedSeat} acquire={acquire} freeUp={freeUp} showId={showId} />
+    return <Seat key={idx} seatId={idx} seatCategory={SEAT_CATEGORIES.reservedSeat} acquire={props.acquire} freeUp={props.freeUp} showId={props.showId} blockSeatsForBooking={props.blockSeatsForBooking}/>
 }
 
 function convertIntToSeatMap(integer) {
@@ -62,22 +62,22 @@ function SeatManager(props) {
       {/* this is very verbose way of dividing seats in three rows... Need to check how to make it better */}
       <div className="inline-display">
         {
-          seatArray.slice(0,4).map((seat, idx) => getSeatComponent(seat, idx, props.acquire, props.freeUp, props.showId))
+          seatArray.slice(0,4).map((seat, idx) => getSeatComponent(seat, idx, props))
         }
       </div>
       <div className="inline-display">
         {
-          seatArray.slice(4,8).map((seat, idx) => getSeatComponent(seat, 4 + idx, props.acquire, props.freeUp, props.showId))
+          seatArray.slice(4,8).map((seat, idx) => getSeatComponent(seat, 4 + idx, props))
         }
       </div>
       <div className="inline-display">
         {
-          seatArray.slice(8,12).map((seat, idx) => getSeatComponent(seat, 8 + idx, props.acquire, props.freeUp, props.showId))
+          seatArray.slice(8,12).map((seat, idx) => getSeatComponent(seat, 8 + idx, props))
         }
       </div>
       <div className="inline-display">
         {
-          seatArray.slice(12,16).map((seat, idx) => getSeatComponent(seat, 12 + idx, props.acquire, props.freeUp, props.showId))
+          seatArray.slice(12,16).map((seat, idx) => getSeatComponent(seat, 12 + idx, props))
         }
       </div>
     </React.Fragment>

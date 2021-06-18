@@ -9,6 +9,7 @@ export default function App() {
     const [selection, setSelection] = useState({hallId: -1, movieId: -1, showId: -1});
     const [selectedSeatCount, setSelectedSeatCount] = useState(0);
     const [selectedSeatIndex, setSelectedSeatIndex] = useState(0);
+    const [blockSeatsForBooking, blockSeatsForSelection] = useState(true);
 
     const setHallId = (id) => {
         setSelection({...selection, hallId:id});
@@ -48,10 +49,10 @@ export default function App() {
         <>
             <DropDownManager setHallId={setHallId} setMovieId={setMovieId} setShowId={setShowId} selection={selection}/>
             {/* This is important to see that on change of props we have re render */}
-            <SeatManager showId={selection.showId} acquire={acquire} freeUp={freeUp} />
+            <SeatManager showId={selection.showId} acquire={acquire} freeUp={freeUp} blockSeatsForBooking={blockSeatsForBooking}/>
             {/* We can simply extend the logic for pricing based on different hallId, movieId, showId */}
             <TotalAmount selectedSeatCount={selectedSeatCount}/>
-            <BookButton selectedSeatIndex={selectedSeatIndex} showId={selection.showId}/>
+            <BookButton selectedSeatIndex={selectedSeatIndex} showId={selection.showId} blockSeatsForSelection={blockSeatsForSelection}/>
         </>
     );
 }

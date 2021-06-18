@@ -29,7 +29,7 @@ function Seat(props) {
     if (props.showId === -1) 
         return (<></>);
     return (  
-        <div className={`${seatCategory} ${CSS_BORDER_AND_SEAT_SIZE_CLASS}`} onClick={seatSelector} />
+        <div className={`${seatCategory} ${CSS_BORDER_AND_SEAT_SIZE_CLASS}`} onClick={props.blockSeatsForBooking? seatSelector : false} />
       );
 
 }

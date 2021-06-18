@@ -124,9 +124,9 @@ app.get('/updateReservation', (req, res) => {
   }
 
   let db = new sqlite3.Database("./movies-database.sqlite");
-  // db.on('trace', (data) => {
-  //   console.log(data);
-  // });
+  db.on('trace', (data) => {
+    console.log(data);
+  });
   db.get
   (`
   SELECT seat_allocation FROM seat_map WHERE show_id = $showId
@@ -177,7 +177,9 @@ app.get('/updateReservation', (req, res) => {
           });
           return;
         }
-        res.send(row);
+        res.send({
+          message: `Reserved seats for showId:${showId} seatMask:${seatMask}`
+        });
       });
   });
 });
