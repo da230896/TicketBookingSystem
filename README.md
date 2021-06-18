@@ -19,5 +19,5 @@
 ## Setup
 
 - ./front-end/cinema-hall is the front end of the system and would need to run `yarn install` and `yarn start`
-- back-end is the back-end of the system and would only need to run `npm run develop`(or `npm run start`)
+- back-end is the back-end of the system and would only need to run `npm run develop`(or `npm run start` or if you want to use yarn then replace `npm run` with `yarn`)
 - go to localhost:3000 for testing simple ticket booking system
