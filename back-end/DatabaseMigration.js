@@ -37,6 +37,7 @@ const createDB = () => {
         )
         db.run(
             `-- Avoiding foreign keys since they are over head right now
+             -- But id here is the show_id
             CREATE TABLE IF NOT EXISTS showtime_table (
               id INTEGER PRIMARY KEY AUTOINCREMENT, 
               hall_id INTEGER NOT NULL,

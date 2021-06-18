@@ -2,18 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import reportWebVitals from './reportWebVitals';
-import PaymentDetailsBox from './components/PaymentDetailsBox';
-import BookButton from './components/BookButton';
-import TotalAmount from './components/TotalAmount'
-import GlobalManager from './components/GlobalManager';
+import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
-      <GlobalManager/>
-      <TotalAmount/>
-      <PaymentDetailsBox/>
-      <br></br>
-      <BookButton/>
+      <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

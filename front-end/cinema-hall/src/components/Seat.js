@@ -20,9 +20,9 @@ function Seat(props) {
 
     let seatSelector = () => { 
         // flipping state of unreserved seat function if updatable
-        if (seatCategory === SEAT_CATEGORIES.unreservedSeat && props.acquire()) 
+        if (seatCategory === SEAT_CATEGORIES.unreservedSeat && props.acquire(props.seatId)) 
             setSeatCategory(SEAT_CATEGORIES.selectedSeat)
-        if (seatCategory === SEAT_CATEGORIES.selectedSeat && props.freeUp()) 
+        if (seatCategory === SEAT_CATEGORIES.selectedSeat && props.freeUp(props.seatId)) 
             setSeatCategory(SEAT_CATEGORIES.unreservedSeat)
     }
     

@@ -57,7 +57,7 @@ function DropDownManager(props) {
             mode: 'cors',
             cache: 'default'
           };
-        console.log(`Trying to fetch showTimes ${props.selection.hallId} ${props.selection.movieId}`);
+        // console.log(`Trying to fetch showTimes ${props.selection.hallId} ${props.selection.movieId}`);
         fetch(`http://localhost:8080/getShowtime?hallId=${props.selection.hallId}&movieId=${props.selection.movieId}`, myInit)
         .then(response => {
             if (!response.ok) {
